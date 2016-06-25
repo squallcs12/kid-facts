@@ -76,6 +76,9 @@ public class Pane {
 
             int x = (int) (canvas.getWidth() * textPosPercentX);
             int y = (int) (canvas.getHeight() * textPosPercentY);
+            if (text.contains("\n")) {
+                y -= textPaint.descent() - textPaint.ascent();
+            }
             for (String line: text.split("\n")) {
                 canvas.drawText(line, x, y, textPaint);
                 y += textPaint.descent() - textPaint.ascent();

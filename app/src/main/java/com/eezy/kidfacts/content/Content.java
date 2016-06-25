@@ -13,7 +13,12 @@ public class Content {
     private static final List<Case> CASES = Arrays.asList(
             new Case(R.drawable.content_drunk, R.drawable.content_driving, R.drawable.content_car_accident),
             new Case(R.drawable.content_drunk, R.drawable.content_take_a_taxi, R.drawable.content_go_safe),
-            new Case(R.drawable.content_chop_tree, R.drawable.content_litter, R.drawable.content_kill_environment));
+            new Case(R.drawable.content_chop_tree, R.drawable.content_litter, R.drawable.content_kill_environment),
+            new Case(R.drawable.content_plant_tree, R.drawable.content_no_liter, R.drawable.content_protect_earth),
+            new Case(R.drawable.content_hard_study, R.drawable.content_be_careful, R.drawable.content_good_grades),
+            new Case(R.drawable.content_hard_study, R.drawable.content_negligent, R.drawable.content_bad_grades),
+            new Case(R.drawable.content_no_study, R.drawable.content_negligent, R.drawable.content_bad_grades),
+            new Case(R.drawable.content_pay_attention, R.drawable.content_do_exercises, R.drawable.content_understand_lesson));
 
     private static final HashMap<Integer, String> CASE_DESCRIPTIONS = new HashMap<Integer, String>() {{
         put(R.drawable.content_drunk, "Drunk");
@@ -22,8 +27,20 @@ public class Content {
         put(R.drawable.content_take_a_taxi, "Take a taxi");
         put(R.drawable.content_go_safe, "");
         put(R.drawable.content_chop_tree, "Chop tree");
-        put(R.drawable.content_litter, "Litter");
+        put(R.drawable.content_litter, "Liter");
         put(R.drawable.content_kill_environment, "Kill earth");
+        put(R.drawable.content_no_liter, "No liter");
+        put(R.drawable.content_plant_tree, "Plant tree");
+        put(R.drawable.content_protect_earth, "Protect earth");
+        put(R.drawable.content_hard_study, "Hard study");
+        put(R.drawable.content_be_careful, "Be careful");
+        put(R.drawable.content_good_grades, "Good grades");
+        put(R.drawable.content_negligent, "Negligent");
+        put(R.drawable.content_bad_grades, "Bad grades");
+        put(R.drawable.content_no_study, "No study");
+        put(R.drawable.content_pay_attention, "Pay attention");
+        put(R.drawable.content_do_exercises, "Do exercises");
+        put(R.drawable.content_understand_lesson, "Understand\nlessons");
     }};
 
     public static List<Case> getCases() {
