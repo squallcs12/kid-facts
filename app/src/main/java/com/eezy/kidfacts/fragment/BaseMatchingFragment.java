@@ -25,6 +25,7 @@ import com.eezy.kidfacts.view.DragablePaneView;
 import com.eezy.kidfacts.view.MovingHand;
 import com.eezy.kidfacts.view.PageTitleView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class BaseMatchingFragment extends Fragment {
@@ -43,6 +44,7 @@ public abstract class BaseMatchingFragment extends Fragment {
 
         setupResources();
         setBackground((ImageView) mView.findViewById(R.id.background));
+        mView.findViewById(R.id.background).setVisibility(View.GONE);
         setTitle((PageTitleView) mView.findViewById(R.id.page_title_view));
         setUpPaneView(mDragablePaneView, true);
         return mView;
@@ -54,7 +56,7 @@ public abstract class BaseMatchingFragment extends Fragment {
         Point startPos = null;
         Point endPos;
 
-        List<Integer> resIds = retrieveResources();
+        final List<Integer> resIds = retrieveResources();
 
         int top = (int) (screenSize.y * 0.27);
         int bottom = (int) (screenSize.y * 0.46);
@@ -120,6 +122,8 @@ public abstract class BaseMatchingFragment extends Fragment {
             }
         };
 
+        final List<Pane> availableOptions = new ArrayList<>();
+
         for (int i = 0; i < resIds.size(); ++i) {
             Pane pivotPane;
             int offset = (bottom - top) + 3 * smallMargin;
@@ -144,6 +148,7 @@ public abstract class BaseMatchingFragment extends Fragment {
             setPaneBackgroundAndDescription(p, id, Content.getCaseDescription(id));
             p.setMovable(true);
             paneView.addPane(p);
+            availableOptions.add(p);
             for (Pane targetPane : targetPanes) {
                 paneView.addTargetPaneFor(targetPane, p, listener);
             }
@@ -160,13 +165,35 @@ public abstract class BaseMatchingFragment extends Fragment {
             MovingHand.show(this, (ViewGroup) mView, startPos, endPos);
         }
 
-        final Point src = startPos;
         mView.findViewById(R.id.btn_help).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                for (Pane p : targetPanes) {
-                    Point des = p.center(0, 0);
-                    MovingHand.show(BaseMatchingFragment.this, (ViewGroup) mView, src, des);
+                List<Point> connectionPoints = getConnectionPoints();
+                for (Point c : connectionPoints) {
+                    int missingIndex = c.x;
+                    int missingItem = c.y;
+                    Point startPos = null;
+                    Point endPos = null;
+
+                    if (missingIndex == 0) {
+                        endPos = cause1.center(0, 0);
+                    } else if (missingIndex == 1) {
+                        endPos = cause2.center(0, 0);
+                    } else {
+                        endPos = result.center(0, 0);
+                    }
+
+                    for (Pane p : availableOptions) {
+                        int id = Integer.valueOf(p.getName());
+                        if (id == missingItem) {
+                            startPos = p.center(0, 0);
+                            break;
+                        }
+                    }
+
+                    if (startPos != null && endPos != null) {
+                        MovingHand.show(BaseMatchingFragment.this, (ViewGroup) mView, startPos, endPos);
+                    }
                 }
             }
         });
