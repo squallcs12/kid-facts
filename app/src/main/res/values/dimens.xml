@@ -1,5 +1,35 @@
 <resources>
     <!-- Default screen margins, per the Android Design guidelines. -->
-    <dimen name="activity_horizontal_margin">16dp</dimen>
-    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="margin">12dp</dimen>
+    <dimen name="margin_xbig">33dp</dimen>
+    <dimen name="margin_xxbig">50dp</dimen>
+    <dimen name="margin_xxxbig">60dp</dimen>
+    <dimen name="margin_big">20dp</dimen>
+    <dimen name="margin_small">4dp</dimen>
+    <dimen name="margin_smaller">2dp</dimen>
+
+    <dimen name="btn_size_big">60dp</dimen>
+    <dimen name="btn_size_normal_3">57dp</dimen>
+    <dimen name="btn_size_normal">47dp</dimen>
+    <dimen name="btn_size_normal_1">40dp</dimen>
+    <dimen name="btn_size_normal_2">36dp</dimen>
+    <dimen name="btn_size_small">25dp</dimen>
+    <dimen name="btn_padding">4dp</dimen>
+    <dimen name="btn_size_long">140dp</dimen>
+    <dimen name="btn_size_longer">200dp</dimen>
+
+    <dimen name="char_size">80dp</dimen>
+    <dimen name="char_bubble_width">183dp</dimen>
+    <dimen name="char_bubble_height">83dp</dimen>
+    <dimen name="char_bubble_text_width">110dp</dimen>
+    <dimen name="char_bubble_text_height">50dp</dimen>
+    <dimen name="moving_hand_size">100dp</dimen>
+
+    <dimen name="text_size_xxsmall">12sp</dimen>
+    <dimen name="text_size_xsmall">14sp</dimen>
+    <dimen name="text_size_small">17sp</dimen>
+    <dimen name="text_size_normal">20sp</dimen>
+    <dimen name="text_size_big">23sp</dimen>
+    <dimen name="text_size_xbig">32sp</dimen>
+    <dimen name="text_size_xxbig">60sp</dimen>
 </resources>

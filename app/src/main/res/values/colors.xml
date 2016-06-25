@@ -3,4 +3,21 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="happy_title">#CEE914</color>
+    <color name="happy_subtitle">#898B0D</color>
+    <color name="sad_title">#E24B6F</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="sharing">#CB4B7D</color>
+    <color name="sharing_title">#A9F44E</color>
+    <color name="sharing_subtitle">#850022</color>
+    <color name="annoying_title">#8FCEF2</color>
+    <color name="annoying_subtitle">#FFFFFF</color>
+    <color name="semi_transparent_black">#AA000000</color>
+    <color name="semi_transparent_white">#99FFFFFF</color>
+    <color name="lime">#C7EC17</color>
+    <color name="orange">#757B0B</color>
+    <color name="happy_parents_guide_text_color">#757B0B</color>
+    <color name="sharing_parents_guide_text_color">#850022</color>
+    <color name="desc_color">#936C43</color>
 </resources>
