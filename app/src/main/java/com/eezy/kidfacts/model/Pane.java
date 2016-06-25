@@ -73,7 +73,13 @@ public class Pane {
             textPaint.setTypeface(Typeface.createFromAsset(context.getAssets(), "fonts/UTM Cookies.ttf"));
             textPaint.setTextSize(36);
             textPaint.setColor(textColor);
-            canvas.drawText(text, canvas.getWidth() * textPosPercentX, canvas.getHeight() * textPosPercentY, textPaint);
+
+            int x = (int) (canvas.getWidth() * textPosPercentX);
+            int y = (int) (canvas.getHeight() * textPosPercentY);
+            for (String line: text.split("\n")) {
+                canvas.drawText(line, x, y, textPaint);
+                y += textPaint.descent() - textPaint.ascent();
+            }
         }
 
         Shader shader = new BitmapShader(mBkBitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);

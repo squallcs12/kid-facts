@@ -23,7 +23,7 @@ public class Content {
         put(R.drawable.content_go_safe, "");
         put(R.drawable.content_chop_tree, "Chop tree");
         put(R.drawable.content_litter, "Litter");
-        put(R.drawable.content_kill_environment, "Kill environment");
+        put(R.drawable.content_kill_environment, "Kill earth");
     }};
 
     public static List<Case> getCases() {
