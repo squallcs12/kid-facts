@@ -118,6 +118,7 @@ public class MapFragment extends Fragment implements MultiPaneView.OnTouchListen
                     EasyMatchingFragment.launch(mActivity);
                     break;
                 case SAD_STORY:
+                    HappyHighScoreFragment.launch(mActivity);
                     break;
                 case SHARING_STORY:
                     break;

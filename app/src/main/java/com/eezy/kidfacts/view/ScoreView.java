@@ -30,4 +30,8 @@ public class ScoreView extends LinearLayout {
         }
         mScore.setText(String.valueOf(newScore));
     }
+
+    public int getScore() {
+        return Integer.valueOf(mScore.getText().toString());
+    }
 }

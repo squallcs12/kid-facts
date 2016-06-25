@@ -84,6 +84,10 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         mScoreView.addScore(score);
     }
 
+    public int getScore() {
+        return mScoreView.getScore();
+    }
+
     public void sayYay1() {
         mMediaUtil.sayYay1();
     }
