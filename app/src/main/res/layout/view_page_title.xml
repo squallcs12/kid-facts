@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:ignore="MissingPrefix"
+    android:paddingTop="@dimen/margin_small"
+    android:paddingLeft="@dimen/margin"
+    android:paddingRight="@dimen/margin"
+    android:paddingBottom="@dimen/margin"
+    android:id="@+id/root_layout">
+
+    <me.grantland.widget.AutofitTextView
+        android:id="@+id/page_title"
+        android:text="Title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_size_xbig"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:singleLine="true"
+        android:shadowColor="#CC000000"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="20"
+        fontPath="fonts/UTM Cookies.ttf"/>
+
+    <me.grantland.widget.AutofitTextView
+        android:id="@+id/page_subtitle"
+        android:text="Subtitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_size_small"
+        android:gravity="center"
+        android:singleLine="true"
+        android:shadowColor="#CC000000"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="1"
+        fontPath="fonts/BreeSerif.otf"/>
+</LinearLayout>

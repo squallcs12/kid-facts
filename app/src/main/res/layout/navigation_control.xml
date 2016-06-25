@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/btn_home"
+        android:layout_width="@dimen/btn_size_normal"
+        android:layout_height="@dimen/btn_size_normal"
+        android:src="@drawable/btn_home"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:paddingTop="@dimen/margin_smaller"
+        android:paddingRight="@dimen/margin_small">
+
+        <ImageView
+            android:id="@+id/btn_1"
+            android:layout_width="@dimen/btn_size_small"
+            android:layout_height="@dimen/btn_size_small"
+            android:src="@drawable/btn_1"
+            android:layout_marginLeft="@dimen/margin_small"
+            android:scaleType="fitEnd"/>
+
+        <ImageView
+            android:id="@+id/btn_2"
+            android:layout_width="@dimen/btn_size_small"
+            android:layout_height="@dimen/btn_size_small"
+            android:src="@drawable/btn_2"
+            android:layout_marginLeft="@dimen/margin_small"
+            android:scaleType="fitEnd"/>
+
+        <ImageView
+            android:id="@+id/btn_3"
+            android:layout_width="@dimen/btn_size_small"
+            android:layout_height="@dimen/btn_size_small"
+            android:src="@drawable/btn_3"
+            android:layout_marginLeft="@dimen/margin_small"
+            android:scaleType="fitEnd"/>
+
+        <ImageView
+            android:id="@+id/btn_4"
+            android:layout_width="@dimen/btn_size_small"
+            android:layout_height="@dimen/btn_size_small"
+            android:src="@drawable/btn_4"
+            android:layout_marginLeft="@dimen/margin_small"
+            android:scaleType="fitEnd"/>
+
+        <ImageView
+            android:id="@+id/btn_5"
+            android:layout_width="@dimen/btn_size_small"
+            android:layout_height="@dimen/btn_size_small"
+            android:src="@drawable/btn_5"
+            android:layout_marginLeft="@dimen/margin_small"
+            android:scaleType="fitEnd"/>
+    </LinearLayout>
+
+</LinearLayout>
