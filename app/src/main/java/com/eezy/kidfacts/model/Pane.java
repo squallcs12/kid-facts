@@ -54,21 +54,24 @@ public class Pane {
     }
 
     public void setBackground(Context context, int bkResId) {
-        setBackground(context, bkResId, null, 0, 0, 0);
+        setBackground(context, bkResId, null, 0, 0, 0, false);
     }
 
-    public void setBackground(Context context, int bkResId, String text, float textPosPercentX, float textPosPercentY, int textColor) {
+    public void setBackground(Context context, int bkResId, String text, float textPosPercentX, float textPosPercentY, int textColor, boolean scaleBitmapForText) {
         if (TextUtils.isEmpty(text)) {
             mBkBitmap = BitmapFactory.decodeResource(context.getResources(), bkResId);
         } else {
             BitmapFactory.Options options = new BitmapFactory.Options();
             options.inMutable = true;
             mBkBitmap = BitmapFactory.decodeResource(context.getResources(), bkResId, options);
+            if (scaleBitmapForText) {
+                mBkBitmap = scaleBitmap(mBkBitmap);
+            }
             Canvas canvas = new Canvas(mBkBitmap);
             Paint textPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
             textPaint.setTextAlign(Paint.Align.CENTER);
             textPaint.setTypeface(Typeface.createFromAsset(context.getAssets(), "fonts/UTM Cookies.ttf"));
-            textPaint.setTextSize(33);
+            textPaint.setTextSize(36);
             textPaint.setColor(textColor);
             canvas.drawText(text, canvas.getWidth() * textPosPercentX, canvas.getHeight() * textPosPercentY, textPaint);
         }
@@ -76,6 +79,14 @@ public class Pane {
         Shader shader = new BitmapShader(mBkBitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
         shader.setLocalMatrix(getTransformedMatrix());
         mBkPaint.setShader(shader);
+    }
+
+    public Bitmap scaleBitmap(Bitmap input) {
+        Bitmap result = Bitmap.createBitmap(input.getWidth(), (int)(input.getWidth() / 0.999), Bitmap.Config.ARGB_8888);
+        Canvas c = new Canvas(result);
+        Rect r = new Rect(0, 0, input.getWidth(), input.getHeight());
+        c.drawBitmap(input, r, r, new Paint());
+        return result;
     }
 
     public void setBackground(Bitmap background) {

@@ -76,7 +76,7 @@ public class MapFragment extends Fragment implements MultiPaneView.OnTouchListen
         happyPane.addVertex(A);
         happyPane.addVertex(B);
         happyPane.addVertex(0, screenSize.y);
-        happyPane.setBackground(mActivity, R.drawable.pane_happy, getString(R.string.education), 0.405f, 0.71f, Color.parseColor("#936C43"));
+        happyPane.setBackground(mActivity, R.drawable.pane_happy, getString(R.string.education), 0.405f, 0.71f, Color.parseColor("#936C43"), false);
         happyPane.setBorder(borderPaint);
 
         Pane sadPane = new Pane(SAD_STORY);
@@ -84,7 +84,7 @@ public class MapFragment extends Fragment implements MultiPaneView.OnTouchListen
         sadPane.addVertex(screenSize.x, 0);
         sadPane.addVertex(C);
         sadPane.addVertex(E);
-        sadPane.setBackground(mActivity, R.drawable.pane_sad, getString(R.string.traffic_safety), 0.5f, 0.64f, Color.WHITE);
+        sadPane.setBackground(mActivity, R.drawable.pane_sad, getString(R.string.traffic_safety), 0.5f, 0.64f, Color.WHITE, false);
         sadPane.setBorder(borderPaint);
 
         Pane sharingPane = new Pane(SHARING_STORY);
@@ -92,7 +92,7 @@ public class MapFragment extends Fragment implements MultiPaneView.OnTouchListen
         sharingPane.addVertex(F);
         sharingPane.addVertex(D);
         sharingPane.addVertex(B);
-        sharingPane.setBackground(mActivity, R.drawable.pane_sharing, getString(R.string.environment), 0.48f, 0.88f, getResources().getColor(R.color.sharing));
+        sharingPane.setBackground(mActivity, R.drawable.pane_sharing, getString(R.string.environment), 0.48f, 0.88f, getResources().getColor(R.color.sharing), false);
         sharingPane.setBorder(borderPaint);
 
         Pane annoyingPane = new Pane(ANNOYING_STORY);
@@ -100,7 +100,7 @@ public class MapFragment extends Fragment implements MultiPaneView.OnTouchListen
         annoyingPane.addVertex(C);
         annoyingPane.addVertex(screenSize.x, screenSize.y);
         annoyingPane.addVertex(D);
-        annoyingPane.setBackground(mActivity, R.drawable.pane_annoying, getString(R.string.emotions), 0.62f, 0.7f, Color.parseColor("#E9D6BD"));
+        annoyingPane.setBackground(mActivity, R.drawable.pane_annoying, getString(R.string.emotions), 0.62f, 0.7f, Color.parseColor("#E9D6BD"), false);
         annoyingPane.setBorder(borderPaint);
 
         multiPaneView.addPane(happyPane);

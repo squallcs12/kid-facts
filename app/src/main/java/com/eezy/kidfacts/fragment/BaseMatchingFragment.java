@@ -45,6 +45,7 @@ public abstract class BaseMatchingFragment extends Fragment {
         setupResources();
         setBackground((ImageView) mView.findViewById(R.id.background));
         setTitle((PageTitleView) mView.findViewById(R.id.page_title_view));
+        ((PageTitleView) mView.findViewById(R.id.page_title_view)).removeSubTitle();
         setUpPaneView(mDragablePaneView, true);
         return mView;
     }
@@ -57,11 +58,11 @@ public abstract class BaseMatchingFragment extends Fragment {
 
         final List<Integer> resIds = retrieveResources();
 
-        int top = (int) (screenSize.y * 0.27);
-        int bottom = (int) (screenSize.y * 0.46);
-        int side = 2 * (bottom - top) / 3;
-        int margin = (int) (screenSize.x * 0.14);
-        int smallMargin = margin / 8;
+        int top = (int) (screenSize.y * 0.18);
+        int bottom = (int) (screenSize.y * 0.45);
+        int side = (int) ((bottom - top) * 0.999);
+        int margin = (int) (screenSize.x * 0.06);
+        int smallMargin = margin / 3;
 
         final Pane cause1 = new Pane(null);
         cause1.addVertex(margin, top);
@@ -95,7 +96,7 @@ public abstract class BaseMatchingFragment extends Fragment {
             p.setBackground(context, R.drawable.question_mark);
         }
 
-        Pane border = new Pane(null, GeoUtil.inflate(GeoUtil.getBoundingRect(cause1, result), smallMargin, smallMargin));
+        Pane border = new Pane(null, GeoUtil.inflate(GeoUtil.getBoundingRect(cause1, result), (int) (smallMargin  * 0.6), (int) (smallMargin * 0.6)));
         Paint borderPaint = new Paint();
         borderPaint.setColor(context.getResources().getColor(R.color.happy_subtitle));
         borderPaint.setStyle(Paint.Style.STROKE);
@@ -125,7 +126,7 @@ public abstract class BaseMatchingFragment extends Fragment {
 
         for (int i = 0; i < resIds.size(); ++i) {
             Pane pivotPane;
-            int offset = (bottom - top) + 3 * smallMargin;
+            int offset = (bottom - top) + (int) (smallMargin * 1.5);
 
             if (i == 0) {
                 pivotPane = cause1;
@@ -200,7 +201,7 @@ public abstract class BaseMatchingFragment extends Fragment {
     }
 
     protected void setPaneBackgroundAndDescription(Pane p, int bkResId, String description) {
-        p.setBackground(getContext(), bkResId, description, 0.5f, 0.96f, getResources().getColor(R.color.desc_color));
+        p.setBackground(getContext(), bkResId, description, 0.5f, 0.96f, getResources().getColor(R.color.desc_color), true);
         p.setName(String.valueOf(bkResId));
     }
 

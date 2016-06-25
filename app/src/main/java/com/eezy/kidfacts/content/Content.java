@@ -11,20 +11,19 @@ import java.util.List;
 public class Content {
 
     private static final List<Case> CASES = Arrays.asList(
-            new Case(R.drawable.eyes_brown_happy, R.drawable.eyes_happy, R.drawable.mouth_happy),
-            new Case(R.drawable.eyes_brown_sad, R.drawable.eyes_sad, R.drawable.mouth_sad),
-            new Case(R.drawable.eyes_brown_annoying, R.drawable.eyes_annoying, R.drawable.mouth_annoying));
+            new Case(R.drawable.content_drunk, R.drawable.content_driving, R.drawable.content_car_accident),
+            new Case(R.drawable.content_drunk, R.drawable.content_take_a_taxi, R.drawable.content_go_safe),
+            new Case(R.drawable.content_chop_tree, R.drawable.content_litter, R.drawable.content_kill_environment));
 
     private static final HashMap<Integer, String> CASE_DESCRIPTIONS = new HashMap<Integer, String>() {{
-        put(R.drawable.eyes_brown_happy, "Happy Eyebrows");
-        put(R.drawable.eyes_brown_sad, "Sad Eyebrows");
-        put(R.drawable.eyes_brown_annoying, "Angry Eyebrows");
-        put(R.drawable.eyes_happy, "Happy Eyes");
-        put(R.drawable.eyes_sad, "Sad Eyes");
-        put(R.drawable.eyes_annoying, "Angry Eyes");
-        put(R.drawable.mouth_happy, "Happy Mouth");
-        put(R.drawable.mouth_sad, "Sad Mouth");
-        put(R.drawable.mouth_annoying, "Angry Mouth");
+        put(R.drawable.content_drunk, "Drunk");
+        put(R.drawable.content_driving, "Driving");
+        put(R.drawable.content_car_accident, "Accident");
+        put(R.drawable.content_take_a_taxi, "Take a taxi");
+        put(R.drawable.content_go_safe, "");
+        put(R.drawable.content_chop_tree, "Chop tree");
+        put(R.drawable.content_litter, "Litter");
+        put(R.drawable.content_kill_environment, "Kill environment");
     }};
 
     public static List<Case> getCases() {
