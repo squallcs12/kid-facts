@@ -4,6 +4,7 @@ import android.support.v4.app.Fragment;
 
 import com.eezy.kidfacts.MainActivity;
 import com.eezy.kidfacts.R;
+import com.eezy.kidfacts.view.Character;
 
 import java.util.ArrayList;
 import java.util.Collections;

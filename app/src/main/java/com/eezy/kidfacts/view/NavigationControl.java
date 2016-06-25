@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.RelativeLayout;
 
+import com.eezy.kidfacts.R;
+
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.List;
