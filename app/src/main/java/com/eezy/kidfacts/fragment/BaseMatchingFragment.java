@@ -44,8 +44,11 @@ public abstract class BaseMatchingFragment extends Fragment {
 
         setupResources();
         setBackground((ImageView) mView.findViewById(R.id.background));
-        setTitle((PageTitleView) mView.findViewById(R.id.page_title_view));
-        ((PageTitleView) mView.findViewById(R.id.page_title_view)).removeSubTitle();
+        PageTitleView pageTitleView = (PageTitleView) mView.findViewById(R.id.page_title_view);
+        pageTitleView.setPageTitleColor(getResources().getColor(R.color.happy_title));
+        pageTitleView.setPageTitle(getString(R.string.matching_title));
+        pageTitleView.removeSubTitle();
+
         setUpPaneView(mDragablePaneView, true);
         return mView;
     }
@@ -245,7 +248,6 @@ public abstract class BaseMatchingFragment extends Fragment {
 
     protected abstract void setupResources();
     protected abstract List<Integer> retrieveResources();
-    protected abstract void setTitle(PageTitleView pageTitleView);
     protected abstract void setBackground(ImageView background);
     protected abstract List<Pane> fillInResources(List<Integer> resIds, Pane cause1, Pane cause2, Pane result);
     protected abstract List<Point> getConnectionPoints();

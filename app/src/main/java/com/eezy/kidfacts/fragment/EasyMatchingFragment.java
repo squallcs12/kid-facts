@@ -42,14 +42,6 @@ public class EasyMatchingFragment extends BaseMatchingFragment {
     }
 
     @Override
-    protected void setTitle(PageTitleView pageTitleView) {
-        pageTitleView.setPageTitleColor(getResources().getColor(R.color.happy_title));
-        pageTitleView.setPageSubtitleColor(getResources().getColor(R.color.happy_subtitle));
-        pageTitleView.setPageTitle("Title");
-        pageTitleView.setPageSubTitle("Subtitle");
-    }
-
-    @Override
     protected void setBackground(ImageView background) {
         background.setImageResource(R.drawable.bk_happy);
     }

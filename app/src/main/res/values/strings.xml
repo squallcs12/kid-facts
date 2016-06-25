@@ -11,4 +11,5 @@
     <string name="environment">Environment</string>
     <string name="traffic_safety">Traffic Safety</string>
     <string name="education">Education</string>
+    <string name="matching_title">Chose the best match</string>
 </resources>
