@@ -19,7 +19,10 @@ public class Content {
             new Case(R.drawable.content_hard_study, R.drawable.content_negligent, R.drawable.content_bad_grades),
             new Case(R.drawable.content_no_study, R.drawable.content_negligent, R.drawable.content_bad_grades),
             new Case(R.drawable.content_pay_attention, R.drawable.content_do_exercises, R.drawable.content_understand_lesson),
-            new Case(R.drawable.content_wakeup_early, R.drawable.content_go_to_school, R.drawable.content_on_time));
+            new Case(R.drawable.content_wakeup_early, R.drawable.content_go_to_school, R.drawable.content_on_time),
+            new Case(R.drawable.content_wakeup_late, R.drawable.content_go_to_school, R.drawable.content_late_for_school),
+            new Case(R.drawable.content_in_class, R.drawable.content_talking_in_class, R.drawable.content_teacher_scold),
+            new Case(R.drawable.content_good_grades, R.drawable.content_polite, R.drawable.content_grandpa_loves));
 
     private static final HashMap<Integer, String> CASE_DESCRIPTIONS = new HashMap<Integer, String>() {{
         put(R.drawable.content_drunk, "Drunk");
@@ -45,6 +48,13 @@ public class Content {
         put(R.drawable.content_go_to_school, "Go to school");
         put(R.drawable.content_wakeup_early, "Wake up\nearly");
         put(R.drawable.content_on_time, "On time");
+        put(R.drawable.content_wakeup_late, "Wake up\nlate");
+        put(R.drawable.content_late_for_school, "Late\nfor school");
+        put(R.drawable.content_in_class, "In class");
+        put(R.drawable.content_talking_in_class, "Talking");
+        put(R.drawable.content_teacher_scold, "Teacher scold");
+        put(R.drawable.content_polite, "Polite");
+        put(R.drawable.content_grandpa_loves, "Parents love");
     }};
 
     public static List<Case> getCases() {
