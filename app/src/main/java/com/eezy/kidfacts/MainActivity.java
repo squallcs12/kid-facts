@@ -62,6 +62,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         switch (v.getId()) {
             case R.id.btn_home:
                 MapFragment.launch(this);
+                mScoreView.setScore(0);
                 break;
             case R.id.btn_1:
                 EasyMatchingFragment.launch(this);

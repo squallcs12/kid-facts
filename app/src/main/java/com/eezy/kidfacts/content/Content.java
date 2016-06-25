@@ -18,7 +18,8 @@ public class Content {
             new Case(R.drawable.content_hard_study, R.drawable.content_be_careful, R.drawable.content_good_grades),
             new Case(R.drawable.content_hard_study, R.drawable.content_negligent, R.drawable.content_bad_grades),
             new Case(R.drawable.content_no_study, R.drawable.content_negligent, R.drawable.content_bad_grades),
-            new Case(R.drawable.content_pay_attention, R.drawable.content_do_exercises, R.drawable.content_understand_lesson));
+            new Case(R.drawable.content_pay_attention, R.drawable.content_do_exercises, R.drawable.content_understand_lesson),
+            new Case(R.drawable.content_wakeup_early, R.drawable.content_go_to_school, R.drawable.content_on_time));
 
     private static final HashMap<Integer, String> CASE_DESCRIPTIONS = new HashMap<Integer, String>() {{
         put(R.drawable.content_drunk, "Drunk");
@@ -33,7 +34,7 @@ public class Content {
         put(R.drawable.content_plant_tree, "Plant tree");
         put(R.drawable.content_protect_earth, "Protect earth");
         put(R.drawable.content_hard_study, "Hard study");
-        put(R.drawable.content_be_careful, "Be careful");
+        put(R.drawable.content_be_careful, "Careful");
         put(R.drawable.content_good_grades, "Good grades");
         put(R.drawable.content_negligent, "Negligent");
         put(R.drawable.content_bad_grades, "Bad grades");
@@ -41,6 +42,9 @@ public class Content {
         put(R.drawable.content_pay_attention, "Pay attention");
         put(R.drawable.content_do_exercises, "Do exercises");
         put(R.drawable.content_understand_lesson, "Understand\nlessons");
+        put(R.drawable.content_go_to_school, "Go to school");
+        put(R.drawable.content_wakeup_early, "Wake up\nearly");
+        put(R.drawable.content_on_time, "On time");
     }};
 
     public static List<Case> getCases() {
@@ -58,8 +62,10 @@ public class Content {
     public static boolean isMatched(int cause1, int cause2, int result) {
         for (Case aCase : CASES) {
             if (aCase.result == result) {
-                return (cause1 == aCase.cause1 || cause1 == aCase.cause2) &&
-                        (cause2 == aCase.cause1 || cause2 == aCase.cause2);
+                if ((cause1 == aCase.cause1 || cause1 == aCase.cause2) &&
+                        (cause2 == aCase.cause1 || cause2 == aCase.cause2)) {
+                    return true;
+                }
             }
         }
         return false;
