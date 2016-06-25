@@ -1,6 +1,7 @@
 <resources>
     <string name="correct">Đúng rồi!</string>
     <string name="try_again">Thử lại nhé</string>
+    <string name="congrat">Chúc Mừng!</string>
 
     <string name="emotions">Cảm Xúc</string>
     <string name="environment">Môi Trường</string>
