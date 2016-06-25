@@ -1,0 +1,9 @@
+<resources>
+    <string name="correct">Đúng rồi!</string>
+    <string name="try_again">Thử lại nhé</string>
+
+    <string name="emotions">Cảm Xúc</string>
+    <string name="environment">Môi Trường</string>
+    <string name="traffic_safety">An Toàn Giao Thông</string>
+    <string name="education">Giáo Dục</string>
+</resources>
