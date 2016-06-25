@@ -22,6 +22,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     private NavigationControl mControl;
     private MediaUtil mMediaUtil;
     private ScoreView mScoreView;
+    public int mNumOfCorrectAnswers;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -35,7 +36,8 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         mMediaUtil = new MediaUtil(this);
         mScoreView = (ScoreView) findViewById(R.id.score_view);
         mScoreView.setScore(0);
-        HappyHighScoreFragment.launch(this);
+        mNumOfCorrectAnswers = 0;
+        MapFragment.launch(this);
     }
 
     @Override

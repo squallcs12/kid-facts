@@ -216,13 +216,18 @@ public abstract class BaseMatchingFragment extends Fragment {
         if (Content.isMatched(cause1.getName(), cause2.getName(), result.getName())) {
             Character.sayYay1(mActivity);
             mActivity.addScore(3);
+            mActivity.mNumOfCorrectAnswers++;
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
                     Character.remove(mActivity);
-                    mDragablePaneView.removeAllPanes();
-                    mDragablePaneView.resetTargetPaneReachListener();
-                    setUpPaneView(mDragablePaneView, false);
+                    if (mActivity.mNumOfCorrectAnswers < 10) {
+                        mDragablePaneView.removeAllPanes();
+                        mDragablePaneView.resetTargetPaneReachListener();
+                        setUpPaneView(mDragablePaneView, false);
+                    } else {
+                        HappyHighScoreFragment.launch(mActivity);
+                    }
                 }
             }, 1000);
         } else {
