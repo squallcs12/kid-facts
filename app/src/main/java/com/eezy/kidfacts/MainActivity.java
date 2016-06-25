@@ -35,7 +35,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         mMediaUtil = new MediaUtil(this);
         mScoreView = (ScoreView) findViewById(R.id.score_view);
         mScoreView.setScore(0);
-        MapFragment.launch(this);
+        HappyHighScoreFragment.launch(this);
     }
 
     @Override
