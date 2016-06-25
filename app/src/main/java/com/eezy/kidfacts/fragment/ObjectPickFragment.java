@@ -28,11 +28,12 @@ import java.util.Random;
 public class ObjectPickFragment extends Fragment implements MultiPaneView.OnTouchListener {
 
     public static final String TAG = ObjectPickFragment.class.getSimpleName();
-    public static final int MAX_NUM_OF_SELECTION = 4;
 
     public static void launch(MainActivity activity) {
-        Util.launchFragment(activity, new ObjectPickFragment(), 4, 5, TAG, true);
+        Util.launchFragment(activity, new ObjectPickFragment(), 1, 3, TAG, false);
     }
+
+    private int MAX_NUM_OF_SELECTION = 5;
 
     private MultiPaneView mMultiPaneView;
     private List<Pane> mSelectedPanes;
@@ -54,23 +55,21 @@ public class ObjectPickFragment extends Fragment implements MultiPaneView.OnTouc
 
     private void setup(MultiPaneView multiPaneView) {
         Point screenSize = DeviceUtil.getScreenSize(getActivity());
-        int halfPaneSize = (int)(screenSize.y * 0.18);
+        int ver = (int) (screenSize.y * 0.27);
+        int side = (int) ((ver) * 0.999);
 
-        List<Point> centers = new ArrayList<>();
-        centers.add(new Point(screenSize.x / 2, screenSize.y * 37 / 90));
-        centers.add(new Point(screenSize.x / 2, (int)(screenSize.y * 0.8)));
-        centers.add(new Point((int)(screenSize.x * 0.18), 3 * screenSize.y / 4));
-        centers.add(new Point((int)(screenSize.x * (1 - 0.18)), 3 * screenSize.y / 4));
-        centers.add(new Point((int)(screenSize.x * 0.1), screenSize.y / 3));
-        centers.add(new Point((int)(screenSize.x * (1 - 0.1)), screenSize.y / 3));
-        centers.add(new Point((int)(screenSize.x * 0.31), (int)(screenSize.y  * 0.55)));
-        centers.add(new Point((int)(screenSize.x * (1 - 0.31)), (int)(screenSize.y * 0.55)));
+        Point resultCenter = new Point(screenSize.x / 2, (int) (screenSize.y * 0.33));
 
-        Collections.shuffle(centers, mRandom);
+
+        List<Point> candidates = new ArrayList<>();
+        candidates.add(new Point(screenSize.x / 2, (int)(screenSize.y * 0.65)));
+        candidates.add(new Point((int)(screenSize.x * 0.18), (int) (screenSize.y  * 0.7)));
+        candidates.add(new Point((int)(screenSize.x * (1 - 0.18)), (int) (screenSize.y  * 0.7)));
+        candidates.add(new Point((int)(screenSize.x * 0.31), (int)(screenSize.y  * 0.45)));
+        candidates.add(new Point((int)(screenSize.x * (1 - 0.31)), (int)(screenSize.y * 0.45)));
+
+        Collections.shuffle(candidates, mRandom);
         int[] resIds = new int[] {
-            R.drawable.content_bad_grades,
-            R.drawable.content_bad_grades,
-            R.drawable.content_bad_grades,
             R.drawable.content_bad_grades,
             R.drawable.content_bad_grades,
             R.drawable.content_bad_grades,
@@ -78,31 +77,26 @@ public class ObjectPickFragment extends Fragment implements MultiPaneView.OnTouc
             R.drawable.content_bad_grades
         };
 
-        Pane bad1 = new Pane("bad1", GeoUtil.inflate(centers.get(0), halfPaneSize));
-        bad1.setBackground(mActivity, resIds[0]);
-        Pane bad2 = new Pane("bad2", GeoUtil.inflate(centers.get(1), halfPaneSize));
-        bad2.setBackground(mActivity, resIds[1]);
-        Pane bad3 = new Pane("bad3", GeoUtil.inflate(centers.get(2), halfPaneSize));
-        bad3.setBackground(mActivity, resIds[2]);
-        Pane bad4 = new Pane("bad4", GeoUtil.inflate(centers.get(3), halfPaneSize));
-        bad4.setBackground(mActivity, resIds[3]);
-        Pane good1 = new Pane("good1", GeoUtil.inflate(centers.get(4), halfPaneSize));
-        good1.setBackground(mActivity, resIds[4]);
-        Pane good2 = new Pane("good2", GeoUtil.inflate(centers.get(5), halfPaneSize));
-        good2.setBackground(mActivity, resIds[5]);
-        Pane good3 = new Pane("good3", GeoUtil.inflate(centers.get(6), halfPaneSize));
-        good3.setBackground(mActivity, resIds[6]);
-        Pane good4 = new Pane("good4", GeoUtil.inflate(centers.get(7), halfPaneSize));
-        good4.setBackground(mActivity, resIds[7]);
+        Pane result = new Pane("result", GeoUtil.inflate(resultCenter, side / 2, ver / 2));
+        result.setBackground(mActivity, resIds[0]);
 
-        multiPaneView.addPane(bad1);
-        multiPaneView.addPane(bad2);
-        multiPaneView.addPane(bad3);
-        multiPaneView.addPane(bad4);
-        multiPaneView.addPane(good1);
-        multiPaneView.addPane(good2);
-        multiPaneView.addPane(good3);
-        multiPaneView.addPane(good4);
+        Pane c1 = new Pane("c1", GeoUtil.inflate(candidates.get(0), side / 2, ver / 2));
+        c1.setBackground(mActivity, resIds[0]);
+        Pane c2 = new Pane("c1", GeoUtil.inflate(candidates.get(1), side / 2, ver / 2));
+        c2.setBackground(mActivity, resIds[1]);
+        Pane c3 = new Pane("c1", GeoUtil.inflate(candidates.get(2), side / 2, ver / 2));
+        c3.setBackground(mActivity, resIds[2]);
+        Pane c4 = new Pane("c1", GeoUtil.inflate(candidates.get(3), side / 2, ver / 2));
+        c4.setBackground(mActivity, resIds[3]);
+        Pane c5 = new Pane("c1", GeoUtil.inflate(candidates.get(4), side / 2, ver / 2));
+        c5.setBackground(mActivity, resIds[4]);
+
+        multiPaneView.addPane(result);
+        multiPaneView.addPane(c1);
+        multiPaneView.addPane(c2);
+        multiPaneView.addPane(c3);
+        multiPaneView.addPane(c4);
+        multiPaneView.addPane(c5);
 
         multiPaneView.registerOnTouchListener(this);
     }
@@ -138,17 +132,17 @@ public class ObjectPickFragment extends Fragment implements MultiPaneView.OnTouc
     }
 
     private void verifyResult() {
-        if (mSelectedPanes.size() == MAX_NUM_OF_SELECTION) {
-            for (Pane pane : mSelectedPanes) {
-                if (pane.getName().contains("good")) {
-                    //Not done yet
-                    showResult(false);
-                    return;
-                }
-            }
-            // Correct answer, move on to the next step
-            showResult(true);
-        }
+//        if (mSelectedPanes.size() == MAX_NUM_OF_SELECTION) {
+//            for (Pane pane : mSelectedPanes) {
+//                if (pane.getName().contains("good")) {
+//                    //Not done yet
+//                    showResult(false);
+//                    return;
+//                }
+//            }
+//            // Correct answer, move on to the next step
+//            showResult(true);
+//        }
     }
 
     private void showResult(final boolean correctResult) {
