@@ -9,6 +9,7 @@ import android.view.View;
 import com.eezy.kidfacts.fragment.DifficultMatchingFragment;
 import com.eezy.kidfacts.fragment.EasyMatchingFragment;
 import com.eezy.kidfacts.fragment.ExtremelyDifficultMatchingFragment;
+import com.eezy.kidfacts.fragment.HappyHighScoreFragment;
 import com.eezy.kidfacts.fragment.MapFragment;
 import com.eezy.kidfacts.util.MediaUtil;
 import com.eezy.kidfacts.view.NavigationControl;
