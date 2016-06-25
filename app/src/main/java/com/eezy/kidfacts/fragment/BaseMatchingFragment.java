@@ -44,7 +44,6 @@ public abstract class BaseMatchingFragment extends Fragment {
 
         setupResources();
         setBackground((ImageView) mView.findViewById(R.id.background));
-        mView.findViewById(R.id.background).setVisibility(View.GONE);
         setTitle((PageTitleView) mView.findViewById(R.id.page_title_view));
         setUpPaneView(mDragablePaneView, true);
         return mView;
@@ -192,6 +191,7 @@ public abstract class BaseMatchingFragment extends Fragment {
                     }
 
                     if (startPos != null && endPos != null) {
+                        mActivity.addScore(-2);
                         MovingHand.show(BaseMatchingFragment.this, (ViewGroup) mView, startPos, endPos);
                     }
                 }
