@@ -2,9 +2,11 @@ package com.eezy.kidfacts.content;
 
 import com.eezy.kidfacts.R;
 import com.eezy.kidfacts.model.Case;
+import com.eezy.kidfacts.model.Multicase;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
@@ -23,6 +25,12 @@ public class Content {
             new Case(R.drawable.content_wakeup_late, R.drawable.content_go_to_school, R.drawable.content_late_for_school),
             new Case(R.drawable.content_in_class, R.drawable.content_talking_in_class, R.drawable.content_teacher_scold),
             new Case(R.drawable.content_good_grades, R.drawable.content_polite, R.drawable.content_grandpa_loves));
+
+    private static final List<Multicase> MULTICASES = Arrays.asList(
+            new Multicase(R.drawable.content_kill_environment, Arrays.asList(R.drawable.content_chop_tree, R.drawable.content_litter)),
+            new Multicase(R.drawable.content_good_grades, Arrays.asList(R.drawable.content_hard_study, R.drawable.content_be_careful)),
+            new Multicase(R.drawable.content_grandpa_loves, Arrays.asList(R.drawable.content_polite, R.drawable.content_good_grades))
+    );
 
     private static final HashMap<Integer, String> CASE_DESCRIPTIONS = new HashMap<Integer, String>() {{
         put(R.drawable.content_drunk, "Drunk");
@@ -61,6 +69,28 @@ public class Content {
         return new ArrayList<>(CASES);
     }
 
+    public static List<Integer> getAMultiCase() {
+        List<Integer> result = new ArrayList<>();
+        List<Multicase> multicases = new ArrayList<>(MULTICASES);
+        Collections.shuffle(multicases);
+        Multicase aMulticase = multicases.remove(0);
+
+        List<Integer> temp = new ArrayList<>();
+        List<Integer> temp1 = new ArrayList<>();
+        temp1.addAll(aMulticase.causes);
+        for (Multicase m : multicases) {
+            temp.addAll(m.split());
+        }
+        Collections.shuffle(temp);
+        temp1.addAll(temp.subList(0, 7 - aMulticase.causes.size()));
+        Collections.shuffle(temp1);
+
+        result.add(aMulticase.causes.size());
+        result.add(aMulticase.result);
+        result.addAll(temp1);
+        return result;
+    }
+
     public static String getCaseDescription(int caseId) {
         return CASE_DESCRIPTIONS.get(caseId);
     }
@@ -79,5 +109,28 @@ public class Content {
             }
         }
         return false;
+    }
+
+    public static boolean isMatched(int result, List<Integer> possibleCauses) {
+        for (Multicase aCase : MULTICASES) {
+            if (aCase.result == result && isTheSameList(aCase.causes, possibleCauses)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private static boolean isTheSameList(List<Integer> l1, List<Integer> l2) {
+        if (l1.size() != l2.size()) {
+            return false;
+        }
+
+        for (int i : l1) {
+            if (!l2.contains(i)) {
+                return false;
+            }
+        }
+
+        return true;
     }
 }

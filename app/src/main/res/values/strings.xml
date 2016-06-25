@@ -12,5 +12,5 @@
     <string name="traffic_safety">Traffic Safety</string>
     <string name="education">Education</string>
     <string name="matching_title">Chose the best match</string>
-    <string name="select_title">Select the causes of…</string>
+    <string name="select_title">Select the possible causes of…</string>
 </resources>
