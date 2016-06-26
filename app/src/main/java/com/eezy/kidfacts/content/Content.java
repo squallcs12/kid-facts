@@ -27,9 +27,10 @@ public class Content {
             new Case(R.drawable.content_good_grades, R.drawable.content_polite, R.drawable.content_grandpa_loves));
 
     private static final List<Multicase> MULTICASES = Arrays.asList(
-            new Multicase(R.drawable.content_kill_environment, Arrays.asList(R.drawable.content_chop_tree, R.drawable.content_litter)),
-            new Multicase(R.drawable.content_good_grades, Arrays.asList(R.drawable.content_hard_study, R.drawable.content_be_careful)),
-            new Multicase(R.drawable.content_grandpa_loves, Arrays.asList(R.drawable.content_polite, R.drawable.content_good_grades))
+            new Multicase(R.drawable.content_kill_environment, Arrays.asList(R.drawable.content_chop_tree, R.drawable.content_litter, R.drawable.content_illegal_hunting, R.drawable.content_pollute_air)),
+            new Multicase(R.drawable.content_good_grades, Arrays.asList(R.drawable.content_hard_study, R.drawable.content_be_careful, R.drawable.content_pay_attention)),
+            new Multicase(R.drawable.content_grandpa_loves, Arrays.asList(R.drawable.content_polite, R.drawable.content_good_grades, R.drawable.content_hard_study)),
+            new Multicase(R.drawable.content_car_accident, Arrays.asList(R.drawable.content_drunk, R.drawable.content_rush, R.drawable.content_run_a_red_light))
     );
 
     private static final HashMap<Integer, String> CASE_DESCRIPTIONS = new HashMap<Integer, String>() {{
@@ -40,10 +41,10 @@ public class Content {
         put(R.drawable.content_go_safe, "");
         put(R.drawable.content_chop_tree, "Chop tree");
         put(R.drawable.content_litter, "Liter");
-        put(R.drawable.content_kill_environment, "Kill earth");
+        put(R.drawable.content_kill_environment, "Destroy env");
         put(R.drawable.content_no_liter, "No liter");
         put(R.drawable.content_plant_tree, "Plant tree");
-        put(R.drawable.content_protect_earth, "Protect earth");
+        put(R.drawable.content_protect_earth, "Protect env");
         put(R.drawable.content_hard_study, "Hard study");
         put(R.drawable.content_be_careful, "Careful");
         put(R.drawable.content_good_grades, "Good grades");
@@ -63,32 +64,18 @@ public class Content {
         put(R.drawable.content_teacher_scold, "Teacher scold");
         put(R.drawable.content_polite, "Polite");
         put(R.drawable.content_grandpa_loves, "Parents love");
+        put(R.drawable.content_rush, "Rush");
+        put(R.drawable.content_run_a_red_light, "Run a\nred light");
+        put(R.drawable.content_illegal_hunting, "Illegal\nhunting");
+        put(R.drawable.content_pollute_air, "Pollute air");
     }};
 
     public static List<Case> getCases() {
         return new ArrayList<>(CASES);
     }
 
-    public static List<Integer> getAMultiCase() {
-        List<Integer> result = new ArrayList<>();
-        List<Multicase> multicases = new ArrayList<>(MULTICASES);
-        Collections.shuffle(multicases);
-        Multicase aMulticase = multicases.remove(0);
-
-        List<Integer> temp = new ArrayList<>();
-        List<Integer> temp1 = new ArrayList<>();
-        temp1.addAll(aMulticase.causes);
-        for (Multicase m : multicases) {
-            temp.addAll(m.split());
-        }
-        Collections.shuffle(temp);
-        temp1.addAll(temp.subList(0, 7 - aMulticase.causes.size()));
-        Collections.shuffle(temp1);
-
-        result.add(aMulticase.causes.size());
-        result.add(aMulticase.result);
-        result.addAll(temp1);
-        return result;
+    public static List<Multicase> getMulticases() {
+        return new ArrayList<>(MULTICASES);
     }
 
     public static String getCaseDescription(int caseId) {

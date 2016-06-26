@@ -15,6 +15,7 @@ import com.eezy.kidfacts.KidFactsApplication;
 import com.eezy.kidfacts.MainActivity;
 import com.eezy.kidfacts.R;
 import com.eezy.kidfacts.content.Content;
+import com.eezy.kidfacts.model.Multicase;
 import com.eezy.kidfacts.model.Pane;
 import com.eezy.kidfacts.util.DeviceUtil;
 import com.eezy.kidfacts.util.GeoUtil;
@@ -46,11 +47,17 @@ public class ObjectPickFragment extends Fragment implements MultiPaneView.OnTouc
     private int mNumOfRealCauses;
     private int mResult;
     private Random mRandom;
+    private List<Multicase> mMultiCases;
+    private int index;
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mActivity = (MainActivity) getActivity();
         mRandom = KidFactsApplication.random;
+        mMultiCases = Content.getMulticases();
+        Collections.shuffle(mMultiCases, mRandom);
+        index = 0;
+
         View v = inflater.inflate(R.layout.fragment_object_pick, container, false);
         mMultiPaneView = (MultiPaneView) v.findViewById(R.id.multi_pane_view);
         setup(mMultiPaneView);
@@ -76,7 +83,7 @@ public class ObjectPickFragment extends Fragment implements MultiPaneView.OnTouc
         candidates.add(new Point((int)(screenSize.x * (1 - 0.1)), (int) (screenSize.y * 0.4)));
 
         Collections.shuffle(candidates, mRandom);
-        List<Integer> resIds = Content.getAMultiCase();
+        List<Integer> resIds = getAMultiCase();
         mNumOfRealCauses = resIds.remove(0);
 
         multiPaneView.addPane(createBorder(resultCenter, (int) (side * 0.6), (int) (ver * 0.6)));
@@ -174,7 +181,11 @@ public class ObjectPickFragment extends Fragment implements MultiPaneView.OnTouc
             public void run() {
                 Character.remove(mActivity);
                 if (correctResult) {
-                    ObjectPickFragment.launchWithoutAnim(mActivity);
+                    mMultiPaneView.removeAllPanes();
+                    mSelectedPanes.clear();
+                    mSelectedClonedPanes.clear();
+                    setup(mMultiPaneView);
+                    mMultiPaneView.invalidate();
                 } else {
                     mMultiPaneView.removePanes(mSelectedClonedPanes);
                     mSelectedPanes.clear();
@@ -183,5 +194,28 @@ public class ObjectPickFragment extends Fragment implements MultiPaneView.OnTouc
                 }
             }
         }, 1000);
+    }
+
+    private List<Integer> getAMultiCase() {
+        List<Integer> result = new ArrayList<>();
+        List<Multicase> multicases = new ArrayList<>(mMultiCases);
+
+        Multicase aMulticase = multicases.remove(index);
+        index = (index + 1) % mMultiCases.size();
+
+        List<Integer> temp = new ArrayList<>();
+        List<Integer> temp1 = new ArrayList<>();
+        temp1.addAll(aMulticase.causes);
+        for (Multicase m : multicases) {
+            temp.addAll(m.split());
+        }
+        Collections.shuffle(temp, mRandom);
+        temp1.addAll(temp.subList(0, 7 - aMulticase.causes.size()));
+        Collections.shuffle(temp1, mRandom);
+
+        result.add(aMulticase.causes.size());
+        result.add(aMulticase.result);
+        result.addAll(temp1);
+        return result;
     }
 }
