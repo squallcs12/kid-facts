@@ -30,6 +30,6 @@ public class HappyHighScoreFragment extends BaseHighScoreFragment {
         pageTitleView.setPageTitleColor(getResources().getColor(R.color.happy_title));
         pageTitleView.setPageSubtitleColor(getResources().getColor(R.color.happy_subtitle));
         pageTitleView.setPageTitle(getString(R.string.congrat));
-        pageTitleView.setPageSubTitle("Subtitle");
+        pageTitleView.setPageSubTitle(getString(R.string.you_have_finished));
     }
 }

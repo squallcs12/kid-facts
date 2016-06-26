@@ -16,24 +16,22 @@ public class DemoScript {
             new Case(R.drawable.content_wakeup_early, R.drawable.content_go_to_school, R.drawable.content_on_time),
             new Case(R.drawable.content_wakeup_late, R.drawable.content_go_to_school, R.drawable.content_late_for_school),
             new Case(R.drawable.content_in_class, R.drawable.content_talking_in_class, R.drawable.content_teacher_scold),
-            new Case(R.drawable.content_good_grades, R.drawable.content_polite, R.drawable.content_grandpa_loves),
             new Case(R.drawable.content_chop_tree, R.drawable.content_litter, R.drawable.content_kill_environment));
 
     private static final List<Integer> EASY_HIDDEN_ITEM = Arrays.asList(
-             0, 1, 2, 1, 2, 0, 1, 2, 2
+             0, 1, 2, 1, 2, 0, 2, 2, 2
     );
 
     private static final List<Case> DIFFICULT_CASES = Arrays.asList(
-            new Case(R.drawable.content_plant_tree, R.drawable.content_no_liter, R.drawable.content_protect_earth),
+            new Case(R.drawable.content_plant_tree, R.drawable.content_no_litter, R.drawable.content_protect_earth),
             new Case(R.drawable.content_pay_attention, R.drawable.content_do_assignment, R.drawable.content_understand_lesson),
             new Case(R.drawable.content_do_exercises, R.drawable.content_eat_various_food_type, R.drawable.content_healthy));
 
     private static final List<Integer> DIFFICULT_VISIBLE_ITEM = Arrays.asList(
-            2, 2, 2
-    );
+            2, 2, 2);
 
     private static final List<Case> EXTREMELY_DIFFICULT_CASES = Arrays.asList(
-            new Case(R.drawable.content_good_grades, R.drawable.content_polite, R.drawable.content_grandpa_loves),
+            new Case(R.drawable.content_good_grades, R.drawable.content_polite, R.drawable.content_grandpa_loves));
 
     private int mEasyCaseIndex;
     private int mEasyHiddenItemIndex;
