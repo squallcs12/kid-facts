@@ -74,9 +74,9 @@ public class ObjectPickFragment extends Fragment implements MultiPaneView.OnTouc
         Point resultCenter = new Point(screenSize.x / 2, (int) (screenSize.y * 0.33));
 
         List<Point> candidates = new ArrayList<>();
-        candidates.add(new Point(screenSize.x / 2, (int)(screenSize.y * 0.65)));
-        candidates.add(new Point((int)(screenSize.x * 0.18), (int) (screenSize.y  * 0.7)));
-        candidates.add(new Point((int)(screenSize.x * (1 - 0.18)), (int) (screenSize.y  * 0.7)));
+        candidates.add(new Point(screenSize.x / 2, (int)(screenSize.y * 0.7)));
+        candidates.add(new Point((int)(screenSize.x * 0.18), (int) (screenSize.y  * 0.75)));
+        candidates.add(new Point((int)(screenSize.x * (1 - 0.18)), (int) (screenSize.y  * 0.75)));
         candidates.add(new Point((int)(screenSize.x * 0.31), (int)(screenSize.y  * 0.45)));
         candidates.add(new Point((int)(screenSize.x * (1 - 0.31)), (int)(screenSize.y * 0.45)));
         candidates.add(new Point((int)(screenSize.x * 0.1), (int) (screenSize.y * 0.4)));
