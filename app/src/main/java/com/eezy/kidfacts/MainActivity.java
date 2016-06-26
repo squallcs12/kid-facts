@@ -9,7 +9,6 @@ import android.view.View;
 import com.eezy.kidfacts.fragment.DifficultMatchingFragment;
 import com.eezy.kidfacts.fragment.EasyMatchingFragment;
 import com.eezy.kidfacts.fragment.ExtremelyDifficultMatchingFragment;
-import com.eezy.kidfacts.fragment.HappyHighScoreFragment;
 import com.eezy.kidfacts.fragment.MapFragment;
 import com.eezy.kidfacts.util.MediaUtil;
 import com.eezy.kidfacts.view.NavigationControl;
@@ -23,6 +22,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     private MediaUtil mMediaUtil;
     private ScoreView mScoreView;
     public int mNumOfCorrectAnswers;
+    public DemoScript mDemoScript;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -37,6 +37,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         mScoreView = (ScoreView) findViewById(R.id.score_view);
         mScoreView.setScore(0);
         mNumOfCorrectAnswers = 0;
+        mDemoScript = new DemoScript();
         MapFragment.launch(this);
     }
 
@@ -64,6 +65,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                 MapFragment.launch(this);
                 mScoreView.setScore(0);
                 mNumOfCorrectAnswers = 0;
+                mDemoScript.restartDemo();
                 break;
             case R.id.btn_1:
                 EasyMatchingFragment.launch(this);
