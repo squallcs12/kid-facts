@@ -10,7 +10,6 @@ import com.eezy.kidfacts.content.Content;
 import com.eezy.kidfacts.model.Case;
 import com.eezy.kidfacts.model.Pane;
 import com.eezy.kidfacts.util.Util;
-import com.eezy.kidfacts.view.PageTitleView;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -82,9 +81,8 @@ public class ExtremelyDifficultMatchingFragment extends BaseMatchingFragment {
         for (Case c : cases) {
             temp.addAll(c.split());
         }
-        Collections.shuffle(temp, r);
 
-        candidateItems.addAll(temp.subList(0, 2));
+        candidateItems.addAll(Util.pickRandomlyAvoidDuplication(temp, r, 2));
         Collections.shuffle(candidateItems, r);
 
         result.addAll(candidateItems);

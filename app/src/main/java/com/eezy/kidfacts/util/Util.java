@@ -8,8 +8,10 @@ import com.eezy.kidfacts.view.Character;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
+import java.util.Set;
 
 public class Util {
 
@@ -70,5 +72,15 @@ public class Util {
         }
 
         return result;
+    }
+
+    public static List<Integer> pickRandomlyAvoidDuplication(List<Integer> list, Random random, int numOfElements) {
+        List<Integer> internalList = new ArrayList<>(list);
+        Set<Integer> hs = new HashSet<>();
+        hs.addAll(internalList);
+        internalList.clear();
+        internalList.addAll(hs);
+        Collections.shuffle(internalList, random);
+        return internalList.subList(0, numOfElements);
     }
 }
