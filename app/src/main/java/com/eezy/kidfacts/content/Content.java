@@ -6,7 +6,6 @@ import com.eezy.kidfacts.model.Multicase;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
@@ -20,11 +19,12 @@ public class Content {
             new Case(R.drawable.content_hard_study, R.drawable.content_be_careful, R.drawable.content_good_grades),
             new Case(R.drawable.content_hard_study, R.drawable.content_negligent, R.drawable.content_bad_grades),
             new Case(R.drawable.content_no_study, R.drawable.content_negligent, R.drawable.content_bad_grades),
-            new Case(R.drawable.content_pay_attention, R.drawable.content_do_exercises, R.drawable.content_understand_lesson),
+            new Case(R.drawable.content_pay_attention, R.drawable.content_do_assignment, R.drawable.content_understand_lesson),
             new Case(R.drawable.content_wakeup_early, R.drawable.content_go_to_school, R.drawable.content_on_time),
             new Case(R.drawable.content_wakeup_late, R.drawable.content_go_to_school, R.drawable.content_late_for_school),
             new Case(R.drawable.content_in_class, R.drawable.content_talking_in_class, R.drawable.content_teacher_scold),
-            new Case(R.drawable.content_good_grades, R.drawable.content_polite, R.drawable.content_grandpa_loves));
+            new Case(R.drawable.content_good_grades, R.drawable.content_polite, R.drawable.content_grandpa_loves),
+            new Case(R.drawable.content_do_exercises, R.drawable.content_eat_various_food_type, R.drawable.content_healthy));
 
     private static final List<Multicase> MULTICASES = Arrays.asList(
             new Multicase(R.drawable.content_kill_environment, Arrays.asList(R.drawable.content_chop_tree, R.drawable.content_litter, R.drawable.content_illegal_hunting, R.drawable.content_pollute_air)),
@@ -52,7 +52,7 @@ public class Content {
         put(R.drawable.content_bad_grades, "Bad grades");
         put(R.drawable.content_no_study, "No study");
         put(R.drawable.content_pay_attention, "Pay attention");
-        put(R.drawable.content_do_exercises, "Do exercises");
+        put(R.drawable.content_do_assignment, "Do assignments");
         put(R.drawable.content_understand_lesson, "Understand\nlessons");
         put(R.drawable.content_go_to_school, "Go to school");
         put(R.drawable.content_wakeup_early, "Wake up\nearly");
@@ -68,6 +68,9 @@ public class Content {
         put(R.drawable.content_run_a_red_light, "Run a\nred light");
         put(R.drawable.content_illegal_hunting, "Illegal\nhunting");
         put(R.drawable.content_pollute_air, "Pollute air");
+        put(R.drawable.content_do_exercises, "Do exercises");
+        put(R.drawable.content_eat_various_food_type, "Eat various\nfood type");
+        put(R.drawable.content_healthy, "Healthy");
     }};
 
     public static List<Case> getCases() {
