@@ -68,7 +68,14 @@ public class ExtremelyDifficultMatchingFragment extends BaseMatchingFragment {
         Random r = KidFactsApplication.random;
         List<Case> cases = Content.getCases();
 
-        Case currentCase = cases.remove((int) (caseIndices.get(index)));
+        Case currentCase;
+        if (mActivity.mDemoScript != null) {
+            currentCase = mActivity.mDemoScript.getExtremelyDifficulCase();
+            cases.remove(currentCase);
+        } else {
+            currentCase = cases.remove((int) (caseIndices.get(index)));
+        }
+
         index = (index + 1) % caseIndices.size();
 
         List<Integer> items = currentCase.split();
