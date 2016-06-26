@@ -225,7 +225,7 @@ public abstract class BaseMatchingFragment extends Fragment {
                 @Override
                 public void run() {
                     Character.remove(mActivity);
-                    if (mActivity.mNumOfCorrectAnswers < 10) {
+                    if (mActivity.mNumOfCorrectAnswers < 13) {
                         mDragablePaneView.removeAllPanes();
                         mDragablePaneView.resetTargetPaneReachListener();
                         setUpPaneView(mDragablePaneView, false);
